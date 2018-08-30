@@ -7,7 +7,7 @@ db = mysql.connector.connect(host='localhost', user='root', password='')
 mycursor = db.cursor()
 print("Connection Successfully")
 
-mycursor.execute("CREATE DATABASE mydatabase")
+mycursor.execute("CREATE DATABASE apple")
 
 print("Create Database Successfully")
 
