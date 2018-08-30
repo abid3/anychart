@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://cdn.anychart.com/releases/8.3.0/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.3.0/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.3.0/js/anychart-exports.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.3.0/js/anychart-stock.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.3.0/js/anychart-data-adapter.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.3.0/css/anychart-ui.min.css" />
+  <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.3.0/fonts/css/anychart-font.min.css" />
+  <style>
+    html, body, #container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+    <title>Anychart Python template</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/javascript">
+    // create data table on loaded data
+    var dataTable = anychart.data.table();
+    var data={{chartData|safe}};
+    //console.log(data[0])
+    dataTable.addData(data);
+    //console.log(dataTable)
+    var chart_title = {{main_title|safe}};
+    //console.log(chart_title)
+
+    /// map the data
+    mapping = dataTable.mapAs();
+    mapping.addField('open', 1);
+    mapping.addField('high', 2);
+    mapping.addField('low', 3);
+    mapping.addField('close', 4);
+
+    // chart type
+    var chart = anychart.stock();
+    // setting chart padding to fit both Y axes
+    chart.padding(10, 50, 20, 50);
+
+    // set the series
+    var series = chart.plot(0).ohlc(mapping);
+    series.name("ACME Corp. stock prices");
+
+    // set the chart title
+    chart.title(chart_title[0]);
+    chart.container('container');
+
+    chart.draw();
+    </script>
+</body>
+</html>
+
