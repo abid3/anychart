@@ -7,9 +7,9 @@ API_ENDPOINT = "http://115.112.230.27:8004/api/TCService/GetDateWiseSymbolData"
 # data to be sent to api
 data = {
     "LoginId": "SUJIT",
-    "GatewayId": "NSEFO",
-    "Exchange": "NSEFO",
-    "Symbol": "NIFTY",
+    "GatewayId": "NSECM",
+    "Exchange": "NSECM",
+    "Symbol": "RELIANCE",
     "StartTime": "01/08/2018 9:15am",
     "EndTime": "07/09/2018 3:15pm",
     "minute": "60"
